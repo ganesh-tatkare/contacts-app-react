@@ -1,0 +1,58 @@
+[debug] [2021-09-15T12:24:04.721Z] ----------------------------------------------------------------------
+[debug] [2021-09-15T12:24:04.725Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2021-09-15T12:24:04.726Z] CLI Version:   9.18.0
+[debug] [2021-09-15T12:24:04.726Z] Platform:      win32
+[debug] [2021-09-15T12:24:04.726Z] Node Version:  v16.7.0
+[debug] [2021-09-15T12:24:04.727Z] Time:          Wed Sep 15 2021 17:54:04 GMT+0530 (India Standard Time)
+[debug] [2021-09-15T12:24:04.728Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-09-15T12:24:04.732Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2021-09-15T12:24:06.849Z] FetchError: request to https://firebase-public.firebaseio.com/cli.json failed, reason: connect ECONNREFUSED 103.59.214.106:443
+    at ClientRequest.<anonymous> (C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1461:11)
+    at ClientRequest.emit (node:events:394:28)
+    at ClientRequest.emit (node:domain:475:12)
+    at TLSSocket.socketErrorListener (node:_http_client:447:9)
+    at TLSSocket.emit (node:events:394:28)
+    at TLSSocket.emit (node:domain:475:12)
+    at emitErrorNT (node:internal/streams/destroy:157:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: Failed to make request to https://firebase-public.firebaseio.com/cli.json
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=1019748047&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-09-15T12:24:07.011Z] Error: spawn cmd ENOENT
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:282:19)
+    at onErrorNT (node:internal/child_process:477:16)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-09-15T12:25:19.130Z] ----------------------------------------------------------------------
+[debug] [2021-09-15T12:25:19.134Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hp\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2021-09-15T12:25:19.134Z] CLI Version:   9.18.0
+[debug] [2021-09-15T12:25:19.135Z] Platform:      win32
+[debug] [2021-09-15T12:25:19.135Z] Node Version:  v16.7.0
+[debug] [2021-09-15T12:25:19.137Z] Time:          Wed Sep 15 2021 17:55:19 GMT+0530 (India Standard Time)
+[debug] [2021-09-15T12:25:19.137Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-09-15T12:25:19.142Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=708732798&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-09-15T12:25:20.610Z] Error: spawn cmd ENOENT
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:282:19)
+    at onErrorNT (node:internal/child_process:477:16)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)
+[error] 
+[error] Error: An unexpected error has occurred.
