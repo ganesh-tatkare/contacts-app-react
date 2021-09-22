@@ -141,7 +141,6 @@ export default function Header() {
   const setContactHandler = (NewContact) => {
     const db = firebase.firestore();
     db.collection("contacts").add(NewContact);
-    setContacts([...contacts, NewContact]);
   }
 
 
@@ -150,18 +149,24 @@ export default function Header() {
     const db = firebase.firestore();
     console.log(item);
     db.collection("contacts").doc(item).delete();
-    setContacts(contacts.filter(contact => contact.id !== item));
   }
 
   //fetching data from firestore and adding id field which is document id for deletion
   useEffect(() => {
-    const fetchData = async () => {
-      const db = firebase.firestore();
-      const data = await db.collection("contacts").get();
-      setContacts(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-      console.log("effect")
-    }
-    fetchData();
+    console.log("in effect");
+    const db = firebase.firestore();
+    const unsubscribe = db.collection("contacts").onSnapshot((snapshot) => {
+      const contData = [];
+      console.log("snapshot",snapshot);
+      snapshot.forEach(doc =>
+        contData.push({ ...doc.data(), id: doc.id })
+      );
+      setContacts(contData);
+    });
+
+    return unsubscribe;
+    // const data = await db.collection("contacts").get();
+    // setContacts(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
   }, []);
 
   const updateContact = (contact) => {
@@ -186,7 +191,7 @@ export default function Header() {
             </IconButton>
             <Typography variant="h6" noWrap>
               Contacts
-          </Typography>
+            </Typography>
           </Toolbar>
         </AppBar>
         <Drawer
