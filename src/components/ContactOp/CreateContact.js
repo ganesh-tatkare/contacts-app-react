@@ -87,7 +87,7 @@ export default function CreateContact(props) {
     console.log("initial values",initialValues); 
 
     const formik = useFormik({
-        enableReinitialize:true,
+        enableReinitialize:true, //for emptying the form on changing path
         initialValues,
         validationSchema: validationSchema,
         onSubmit: (values, { resetForm }) => {
