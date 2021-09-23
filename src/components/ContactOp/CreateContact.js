@@ -73,30 +73,28 @@ export default function CreateContact(props) {
         jobTitle: '',
         email: '',
         phone: '',
+        id: '',
     };
 
     let history = useHistory();
     const value = history.location.state;
-    console.log("History", history.location);
+    console.log("History", value);
+    console.log("Path",history.location.pathname)
     if (history.location.pathname === "/EditContact") {
-        initialValues = {
-            firstName: value.firstName,
-            lastName: value.lastName,
-            company: value.company,
-            jobTitle: value.jobTitle,
-            email: value.email,
-            phone: value.phone,
-        };
+        initialValues = value;
     }
 
+    console.log("initial values",initialValues); 
+
     const formik = useFormik({
+        enableReinitialize:true,
         initialValues,
         validationSchema: validationSchema,
         onSubmit: (values, { resetForm }) => {
             // dispatch({ type: 'createContact', values });
             props.contactHandler(values);
             setAlert(true);
-            resetForm({ values: '' });
+            //resetForm({ values: '' });
         }
     });
 

@@ -16,7 +16,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ContactList from './ContactList';
-import CreateContact from './CreateContact';
+import CreateContact from './ContactOp/CreateContact';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,41 +26,6 @@ import {
 import firebase from '../firebase';
 
 const drawerWidth = 240;
-
-// const initialContacts = [
-//   {
-//     firstName: 'Ganesh',
-//     lastName: 'Tatkare',
-//     company: 'TCS',
-//     jobTitle: 'Dev',
-//     email: 'gtatkare@gmail.com',
-//     phone: '8655079637'
-//   },
-//   {
-//     firstName: 'Jane',
-//     lastName: 'Doe',
-//     company: 'Something',
-//     jobTitle: 'Dev',
-//     email: 'jane.doe@gmail.com',
-//     phone: '9619334588'
-//   },
-//   {
-//     firstName: "Dwight",
-//     lastName: "Shrute",
-//     company: "DM",
-//     jobTitle: "ARM",
-//     email: "dwight.shrute@gmail.com",
-//     phone: "8111181111"
-//   },
-//   {
-//     firstName: "Michael",
-//     lastName: "Scott",
-//     company: "DM",
-//     jobTitle: "Manager",
-//     email: "michael.scott@gmail.com",
-//     phone: "9999944444"
-//   },
-// ]
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -147,7 +112,6 @@ export default function Header() {
   //deleting data from firestore and app
   const deleteItem = (item) => {
     const db = firebase.firestore();
-    console.log(item);
     db.collection("contacts").doc(item).delete();
   }
 
@@ -157,7 +121,7 @@ export default function Header() {
     const db = firebase.firestore();
     const unsubscribe = db.collection("contacts").onSnapshot((snapshot) => {
       const contData = [];
-      console.log("snapshot",snapshot);
+      console.log("snapshot", snapshot);
       snapshot.forEach(doc =>
         contData.push({ ...doc.data(), id: doc.id })
       );
@@ -169,7 +133,19 @@ export default function Header() {
     // setContacts(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
   }, []);
 
+  console.log("contactsList", contacts)
+
   const updateContact = (contact) => {
+    const db = firebase.firestore();
+    db.collection("contacts").doc(contact.id).update({
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      company: contact.company,
+      jobTitle: contact.jobTitle,
+      email: contact.email,
+      phone: contact.phone,
+      id: contact.id,
+    });
     console.log(contact);
   };
 

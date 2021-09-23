@@ -6,8 +6,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import DeleteContact from './DeleteContact';
-import EditContact from './EditContact';
+import DeleteContact from './ContactOp/DeleteContact';
+import EditContact from './ContactOp/EditContact';
 import { Paper } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -18,6 +18,9 @@ const useStyles = makeStyles({
     },
     actions: {
         display: 'flex',
+    },
+    deleteIcon:{
+        marginRight: 5,
     }
 });
 
@@ -46,11 +49,11 @@ export default function ContactTable(props) {
                             {rows.map((row) => (
                                 <TableRow key={row.id}>
                                     <TableCell component="th" scope="row">
-                                        {row.firstName}
+                                        {row.firstName} {row.lastName}
                                     </TableCell>
                                     <TableCell>{row.phone}</TableCell>
                                     <TableCell className={classes.actions}>
-                                        <DeleteContact item={row.id} deleteItem={deleteHandler} />
+                                        <DeleteContact className={classes.deleteIcon} item={row.id} deleteItem={deleteHandler} />
                                         <EditContact item={row} />
                                         {/* <DeleteIcon onClick={deleteHandler} /> */}
                                     </TableCell>
